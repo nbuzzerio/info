@@ -1,0 +1,52 @@
+{
+  "name": "fec_info",
+  "version": "1.0.0",
+  "description": "covers the Specs, History, Temprament/Upkeep, Health, and Disclaimer sections",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "graphql": "nodemon server_graphQL/index.js",
+    "start": "nodemon server_express/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sagittarius-HR/info.git"
+  },
+  "author": "Aaron Lerner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sagittarius-HR/info/issues"
+  },
+  "homepage": "https://github.com/Sagittarius-HR/info#readme",
+  "jest": {
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "setupFiles": ["./src/setupTests.js"],
+    "moduleFileExtensions": ["js", "jsx"],
+    "moduleDirectories": ["node_modules", "bower_components"]
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.8.9",
+    "nodemon": "^2.0.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.3",
+    "jest": "^24.9.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
