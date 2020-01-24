@@ -8,3 +8,10 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 app.listen(PORT, () => console.log('express listening on ', PORT));
+
+
+//----------- ROUTES ----------------
+
+
+
+

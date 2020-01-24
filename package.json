@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "covers the Specs, History, Temprament/Upkeep, Health, and Disclaimer sections",
   "main": "index.js",
+  "jest": {
+    "setupFilesAfterEnv": [
+      "jest-enzyme"
+    ],
+    "testEnvironment": "enzyme"
+  },
   "scripts": {
     "test": "jest",
     "build": "webpack",
@@ -19,22 +25,25 @@
     "url": "https://github.com/Sagittarius-HR/info/issues"
   },
   "homepage": "https://github.com/Sagittarius-HR/info#readme",
-  "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["./src/setupTests.js"],
-    "moduleFileExtensions": ["js", "jsx"],
-    "moduleDirectories": ["node_modules", "bower_components"]
-  },
   "dependencies": {
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "graphql": "^14.5.8",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
+    "lorem-ipsum": "^2.0.3",
+    "mongo-seeding": "^3.4.0-alpha.1",
+    "mongo-seeding-cli": "^3.4.0-alpha.1",
     "mongoose": "^5.8.9",
     "nodemon": "^2.0.2",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "react-test-renderer": "^16.12.0",
+    "redux": "^4.0.5",
+    "styled-components": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
@@ -46,6 +55,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.3",
     "jest": "^24.9.0",
+    "jest-cli": "^25.1.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   }
