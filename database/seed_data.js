@@ -1,5 +1,7 @@
-import lorem from '../ipsum_data/generator.js';
-import breeds from './breeds';
+const lorem = require('lorem-ipsum');
+const dogBreeds = require('./dog_breeds.js');
+const db = require('../database/index.js');
+const options = require('./lorem_options');
 
 // ex. randomInt(1,5) => generates 1-5 inclusive
 let randomInt = (min, max) => {
@@ -9,6 +11,7 @@ let randomInt = (min, max) => {
 let breedTypes = ['Herding', 'Sporting', 'Non-Sporting', 'Working', 'Hounds', 'Terriers', 'Toy'];
 
 let breedInfoArray = []
+console.log(lorem.loremIpsum({count: 1, units: 'sentences'}))
 
 //will generate random numbers, categories or ipsum data depending on breed attribute
 for (let i = 1; i <=100; i++) {
@@ -23,14 +26,22 @@ for (let i = 1; i <=100; i++) {
   let numberOfOtherNames = randomInt(0,3);
   let otherNameList = [];
   for (let i = 0; i < numberOfOtherNames.length; i++) {
-    otherNameList.push(lorem.generateWords(randomInt(1,2)))
+    otherNameList.push(lorem.loremIpsum({count:randomInt(1,2), units: 'words'}))
   }
 
+  //lorem options
+  let tempramentOptions = {
+    count: 1,
+    units: 'paragraphs',
+    sentenceLowerBound: 5,
+    sentenceUpperBound: 15,
+    paragraphLowerBound: 3,
+    paragraphUpperBound: 7  }
 
   let tempInfoObj = {
     //about
     id: i,
-    breed: breeds[i + 1];
+    breed: dogBreeds.breeds[i + 1],
     availableForAdoption: randomInt(1, 500),
     imageUrl: `http://breedphotos.s3.us-east-2.amazonaws.com/photos/image${i}.jpg`,
     energyLevel: randomInt(1, 5),
@@ -52,24 +63,30 @@ for (let i = 1; i <=100; i++) {
     weightMax: randomWeightMax,
     heightMin: randomHeightMin,
     heightMax: randomHeightMax,
-    family: lorem.generateWords(1),
-    areaOfOrigin: lorem.generateWords(1),
+    family: lorem.loremIpsum(options.familyAndAreaOptions),
+    areaOfOrigin: lorem.loremIpsum(options.familyAndAreaOptions),
     dateOfOrigin: `${randomInt(5, 19)}00s`,
     otherNames: otherNameList,
 
     //detailed info
-    history: lorem.generateParagraphs(randomInt(1,3)),
-    temprament: lorem.generateParagraphs(1),
-    upkeep: lorem.generateParagraphs(1),
+    history: lorem.loremIpsum(options.historyOptions),
+    temprament: lorem.loremIpsum(options.tempramentAndUpkeepOptions),
+    upkeep: lorem.loremIpsum(options.tempramentAndUpkeepOptions),
 
     //health
-    majorConcerns: lorem.generateWords(randomInt(1,5)),
-    minorConcerns: lorem.generateWords(randomInt(1,10)),
-    occaisonallySeen: lorem.generateWords(randomInt(1,10)),
-    suggestedTests: lorem.generateWords(randomInt(1,4)),
-    lifeSpan: `${randomInt(8-20)} years`,
-    note: lorem.generateSentence()
+    majorConcerns: lorem.loremIpsum(options.concerns),
+    minorConcerns: lorem.loremIpsum(options.concerns),
+    occaisonallySeen: lorem.loremIpsum(options.concerns),
+    suggestedTests: lorem.loremIpsum(options.concerns),
+    lifeSpan: `${randomInt(8, 20)} years`,
+    note: lorem.loremIpsum({count: 2, units: 'sentences'}),
+
+    //disclaimer
+    disclaimer: lorem.loremIpsum({count: 2, units: 'sentences'}),
+
   }
 
   breedInfoArray.push(tempInfoObj);
 }
+
+module.exports.breedInfoArray = breedInfoArray;

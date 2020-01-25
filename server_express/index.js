@@ -1,7 +1,8 @@
-var express = require('express');
+const express = require('express');
 const PORT = 3000;
 
-var app = express();
+let app = express();
+const db = require('../database/index.js');
 
 app.use(express.urlencoded({ extended: true}))
 app.use(express.static(__dirname + '/../client/dist'));
