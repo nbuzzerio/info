@@ -21,7 +21,7 @@ db.once('open', ()=> {
 
 let breedSchema = mongoose.Schema({
   id: Number,
-  breed: String,
+  breedName: String,
   availableForAdoption: Number,
   imageUrl: String,
   energyLevel: Number,
@@ -87,6 +87,12 @@ let seed = (breedInfoArray) => {
       }
     })
 
+}
+
+let retreiveAll = () => {
+  let findPromise = Breed.find({}, {'id', 'breedName', 'weightMin', 'weightMax', 'heightMin', 'heightMax', 'type'}).exec()
+
+  return findPromise
 }
 
 
