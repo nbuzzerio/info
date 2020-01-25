@@ -29,19 +29,11 @@ for (let i = 1; i <=100; i++) {
     otherNameList.push(lorem.loremIpsum({count:randomInt(1,2), units: 'words'}))
   }
 
-  //lorem options
-  let tempramentOptions = {
-    count: 1,
-    units: 'paragraphs',
-    sentenceLowerBound: 5,
-    sentenceUpperBound: 15,
-    paragraphLowerBound: 3,
-    paragraphUpperBound: 7  }
 
   let tempInfoObj = {
     //about
     id: i,
-    breed: dogBreeds.breeds[i + 1],
+    breedName: dogBreeds.breeds[i + 1],
     availableForAdoption: randomInt(1, 500),
     imageUrl: `http://breedphotos.s3.us-east-2.amazonaws.com/photos/image${i}.jpg`,
     energyLevel: randomInt(1, 5),

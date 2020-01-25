@@ -13,6 +13,7 @@ app.listen(PORT, () => console.log('express listening on ', PORT));
 
 //----------- ROUTES ----------------
 
+//route for
 app.get('/api/breedInfoAll', (req, res) => {
   //retreives all, returns a promise containing array of objects
   db.retreiveAll()
