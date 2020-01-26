@@ -14,13 +14,21 @@ app.listen(PORT, () => console.log('express listening on ', PORT));
 //----------- ROUTES ----------------
 
 //route for
-app.get('/api/breedInfoAll', (req, res) => {
-  //retreives all, returns a promise containing array of objects
-  db.retreiveAll()
+app.get('/api/allBreedsSimilar', (req, res) => {
+  //retreives limited data for all breeds, returns a promise containing array of objects
+  db.retreiveSimilar()
     .then((breedInfoArray) => {
       res.send(breedInfoArray)
     })
 
+});
+
+app.get('/api/oneBreed', (req, res) => {
+  //retreives all data for one breed
+  db.retreiveOne(req.body)
+    .then((breedInfo) => {
+      res.send(breedInfo)
+    })
 })
 
 

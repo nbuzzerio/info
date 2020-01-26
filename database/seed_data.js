@@ -36,6 +36,7 @@ for (let i = 1; i <=100; i++) {
     breedName: dogBreeds.breeds[i + 1],
     availableForAdoption: randomInt(1, 500),
     imageUrl: `http://breedphotos.s3.us-east-2.amazonaws.com/photos/image${i}.jpg`,
+    summary: lorem.loremIpsum(options.summaryOptions)
     energyLevel: randomInt(1, 5),
     exerciseRequirements: randomInt(1, 5),
     playfullness: randomInt(1, 5),

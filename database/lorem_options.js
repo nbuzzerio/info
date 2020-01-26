@@ -29,3 +29,12 @@ module.exports.concerns = {
   count: randomInt(1,10),
   units: 'words'
 }
+
+module.exports.summaryOptions = {
+  count: 1,
+  units: 'paragraphs',
+  sentenceLowerBound: 5,
+  sentenceUpperBound: 15,
+  paragraphLowerBound: 3,
+  paragraphUpperBound: 7
+}
