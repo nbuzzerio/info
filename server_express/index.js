@@ -24,8 +24,10 @@ app.get('/api/allBreedsSimilar', (req, res) => {
 });
 
 app.get('/api/oneBreed', (req, res) => {
+  console.log('req.query: ', req.query)
   //retreives all data for one breed
-  db.retreiveOne(req.body)
+  let id = req.query.id;
+  db.retreiveOne(id)
     .then((breedInfo) => {
       res.send(breedInfo)
     })

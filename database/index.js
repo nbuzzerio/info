@@ -25,6 +25,7 @@ let breedSchema = mongoose.Schema({
   availableForAdoption: Number,
   imageUrl: String,
   summary: String,
+
   energyLevel: Number,
   exerciseRequirements: Number,
   playfullness: Number,
@@ -91,7 +92,7 @@ let seed = (breedInfoArray) => {
 }
 
 let retreiveSimilar = () => {
-  let findSimilarPromise = Breed.find({}, {'id', 'breedName', 'weightMin', 'weightMax', 'heightMin', 'heightMax', 'type'}).exec()
+  let findSimilarPromise = Breed.find({}, 'id breedName weightMin weightMax heightMin heightMax type').exec()
 
   return findSimilarPromise
 }
@@ -102,6 +103,6 @@ let retreiveOne = (id) => {
   return findOnePromise
 }
 
-
+module.exports.retreiveOne = retreiveOne;
 module.exports.retreiveSimilar = retreiveSimilar;
 module.exports.Breed = Breed;

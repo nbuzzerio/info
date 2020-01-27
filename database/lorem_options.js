@@ -2,7 +2,7 @@ let randomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-module.exports.tempramentAndUpkeepOptions = {
+module.exports.tempramentAndUpkeep = {
   count: 1,
   units: 'paragraphs',
   sentenceLowerBound: 5,
@@ -11,12 +11,12 @@ module.exports.tempramentAndUpkeepOptions = {
   paragraphUpperBound: 7
 }
 
-module.exports.familyAndAreaOptions = {
+module.exports.familyAndArea = {
   count: 1,
   units: 'words'
 }
 
-module.exports.historyOptions = {
+module.exports.history = {
   count: randomInt(1,3),
   units: 'paragraphs',
   sentenceLowerBound: 5,
@@ -30,7 +30,7 @@ module.exports.concerns = {
   units: 'words'
 }
 
-module.exports.summaryOptions = {
+module.exports.summary = {
   count: 1,
   units: 'paragraphs',
   sentenceLowerBound: 5,
