@@ -21,44 +21,53 @@ db.once('open', ()=> {
 
 let breedSchema = mongoose.Schema({
   id: Number,
-  breedName: String,
-  availableForAdoption: Number,
-  imageUrl: String,
-  summary: String,
 
-  energyLevel: Number,
-  exerciseRequirements: Number,
-  playfullness: Number,
-  affectionLevel: Number,
-  friendlinessToDogs: Number,
-  friendlinessToOtherPets: Number,
-  friendlinessToStrangers: Number,
-  watchfullness: Number,
-  easeOfTraining: Number,
-  groomingRequirements: Number,
-  heatSensitivity: Number,
-  vocality: Number,
+  about: mongoose.Schema({
+    breedName: String,
+    availableForAdoption: Number,
+    imageUrl: String,
+    summary: String
+  }),
 
-  type: String,
-  weightMin: Number,
-  weightMax: Number,
-  heightMin: Number,
-  heightMax: Number,
-  family: String,
-  areaOfOrigin: String,
-  dateOfOrigin: String,
-  otherNames: [],
+  stats: mongoose.Schema({
+    energyLevel: Number,
+    exerciseRequirements: Number,
+    playfullness: Number,
+    affectionLevel: Number,
+    friendlinessToDogs: Number,
+    friendlinessToOtherPets: Number,
+    friendlinessToStrangers: Number,
+    watchfullness: Number,
+    easeOfTraining: Number,
+    groomingRequirements: Number,
+    heatSensitivity: Number,
+    vocality: Number
+  }),
+
+  specs: mongoose.Schema({
+    type: String,
+    weightMin: Number,
+    weightMax: Number,
+    heightMin: Number,
+    heightMax: Number,
+    family: String,
+    areaOfOrigin: String,
+    dateOfOrigin: String,
+    otherNames: []
+  }),
 
   history: String,
   temprament: String,
   upkeep: String,
 
-  majorConcerns: String,
-  minorConcerns: String,
-  occaisonallySeen: String,
-  suggestedTests: String,
-  lifeSpan: String,
-  disclaimer: String
+  health: mongoose.Schema({
+    majorConcerns: String,
+    minorConcerns: String,
+    occaisonallySeen: String,
+    suggestedTests: String,
+    lifeSpan: String,
+  }),
+    disclaimer: String
 
 })
 

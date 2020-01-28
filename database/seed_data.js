@@ -30,49 +30,52 @@ for (let i = 1; i <=100; i++) {
 
 
   let tempInfoObj = {
-    //about
     id: i,
-    breedName: dogBreeds.breeds[i + 1],
-    availableForAdoption: randomInt(1, 500),
-    imageUrl: `http://breedphotos.s3.us-east-2.amazonaws.com/photos/image${i}.jpg`,
-    summary: lorem.loremIpsum(options.summary),
-    energyLevel: randomInt(1, 5),
-    exerciseRequirements: randomInt(1, 5),
-    playfullness: randomInt(1, 5),
-    affectionLevel: randomInt(1, 5),
-    friendlinessToDogs: randomInt(1, 5),
-    friendlinessToOtherPets: randomInt(1, 5),
-    friendlinessToStrangers: randomInt(1, 5),
-    watchfullness: randomInt(1, 5),
-    easeOfTraining: randomInt(1, 5),
-    groomingRequirements: randomInt(1, 5),
-    heatSensitivity: randomInt(1, 5),
-    vocality: randomInt(1, 5),
 
-    //specs
-    type: breedTypes[randomInt(1, 7) - 1],
-    weightMin: randomWeightMin,
-    weightMax: randomWeightMax,
-    heightMin: randomHeightMin,
-    heightMax: randomHeightMax,
-    family: lorem.loremIpsum(options.familyAndArea),
-    areaOfOrigin: lorem.loremIpsum(options.familyAndArea),
-    dateOfOrigin: `${randomInt(5, 19)}00s`,
-    otherNames: otherNameList,
+    about: {
+      breedName: dogBreeds.breeds[i + 1],
+      availableForAdoption: randomInt(1, 500),
+      imageUrl: `http://breedphotos.s3.us-east-2.amazonaws.com/photos/image${i}.jpg`,
+      summary: lorem.loremIpsum(options.summary),
+      energyLevel: randomInt(1, 5),
+      exerciseRequirements: randomInt(1, 5),
+      playfullness: randomInt(1, 5),
+      affectionLevel: randomInt(1, 5),
+      friendlinessToDogs: randomInt(1, 5),
+      friendlinessToOtherPets: randomInt(1, 5),
+      friendlinessToStrangers: randomInt(1, 5),
+      watchfullness: randomInt(1, 5),
+      easeOfTraining: randomInt(1, 5),
+      groomingRequirements: randomInt(1, 5),
+      heatSensitivity: randomInt(1, 5),
+      vocality: randomInt(1, 5)
+    },
+
+    specs : {
+      type: breedTypes[randomInt(1, 7) - 1],
+      weightMin: randomWeightMin,
+      weightMax: randomWeightMax,
+      heightMin: randomHeightMin,
+      heightMax: randomHeightMax,
+      family: lorem.loremIpsum(options.familyAndArea),
+      areaOfOrigin: lorem.loremIpsum(options.familyAndArea),
+      dateOfOrigin: `${randomInt(5, 19)}00s`,
+      otherNames: otherNameList
+    },
 
     //detailed info
     history: lorem.loremIpsum(options.history),
     temprament: lorem.loremIpsum(options.tempramentAndUpkeep),
     upkeep: lorem.loremIpsum(options.tempramentAndUpkeep),
 
-    //health
-    majorConcerns: lorem.loremIpsum(options.concerns),
-    minorConcerns: lorem.loremIpsum(options.concerns),
-    occaisonallySeen: lorem.loremIpsum(options.concerns),
-    suggestedTests: lorem.loremIpsum(options.concerns),
-    lifeSpan: `${randomInt(8, 20)} years`,
-    note: lorem.loremIpsum({count: 2, units: 'sentences'}),
-
+    health : {
+      majorConcerns: lorem.loremIpsum(options.concerns),
+      minorConcerns: lorem.loremIpsum(options.concerns),
+      occaisonallySeen: lorem.loremIpsum(options.concerns),
+      suggestedTests: lorem.loremIpsum(options.concerns),
+      lifeSpan: `${randomInt(8, 20)} years`,
+      note: lorem.loremIpsum({count: 2, units: 'sentences'})
+    },
     //disclaimer
     disclaimer: lorem.loremIpsum({count: 2, units: 'sentences'}),
 

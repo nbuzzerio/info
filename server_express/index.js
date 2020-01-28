@@ -29,8 +29,11 @@ app.get('/api/oneBreed', (req, res) => {
   let id = req.query.id;
   db.retreiveOne(id)
     .then((breedInfo) => {
-      res.send(breedInfo)
+      res.send(breedInfo[0])
     })
 })
 
+// app.get('/', (req, res) => {
+//   res.end()
+// })
 
