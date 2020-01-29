@@ -13,7 +13,8 @@
     "test": "jest",
     "build": "webpack",
     "graphql": "nodemon server_graphQL/index.js",
-    "start": "nodemon server_express/index.js"
+    "start": "nodemon server_express/index.js",
+    "seed": "node ./database/data/seed_script.js"
   },
   "repository": {
     "type": "git",

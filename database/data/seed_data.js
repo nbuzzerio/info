@@ -1,7 +1,8 @@
 const lorem = require('lorem-ipsum');
-const dogBreeds = require('./dog_breeds.js');
-const db = require('../database/index.js');
-const options = require('./lorem_options');
+
+const options = require('../lorem_options');
+const dogBreeds = require('../dog_breeds.js');
+
 
 // ex. randomInt(1,5) => generates 1-5 inclusive
 let randomInt = (min, max) => {
@@ -21,12 +22,40 @@ for (let i = 1; i <=100; i++) {
   let randomHeightMin = randomInt(6, 48);
   let randomHeightMax = randomHeightMin + randomInt(1, 12);
 
-  //generate array of 0-2 ipsum other names of 1-2 words
+  //generate array of 0-2 ipsum otherNames of 1-2 words
   let numberOfOtherNames = randomInt(0,3);
   let otherNameList = [];
-  for (let i = 0; i < numberOfOtherNames.length; i++) {
+  for (let i = 0; i < numberOfOtherNames; i++) {
     otherNameList.push(lorem.loremIpsum({count:randomInt(1,2), units: 'words'}))
   }
+
+  let otherNameString = otherNameList.join(', ')
+
+  let numberOfConcerns = randomInt(1,8);
+  let majorConcernsList = [];
+  let minorConcernsList = [];
+  for (let i = 0; i < numberOfConcerns; i++) {
+    majorConcernsList.push(lorem.loremIpsum({count:randomInt(1,3), units: 'words'}));
+    minorConcernsList.push(lorem.loremIpsum({count:randomInt(1,2), units: 'words'}))
+  }
+  let majorConcernsString = majorConcernsList.join(', ')
+  let minorConcernsString = minorConcernsList.join(', ')
+
+  let numberOfOccasionallySeen = randomInt(1,3);
+  let occasionallySeenList = []
+  for (let i = 0; i < numberOfOccasionallySeen; i++) {
+    occasionallySeenList.push(lorem.loremIpsum({count:randomInt(1,2), units: 'words'}))
+  }
+  let occasionallySeenString = occasionallySeenList.join(', ')
+
+
+  let numberOfSuggestedTests = randomInt(1,4);
+  let suggestedTestsList = [];
+  for (let i = 0; i < numberOfSuggestedTests; i++) {
+    suggestedTestsList.push(lorem.loremIpsum({count:randomInt(1,2), units: 'words'}))
+  }
+  let suggestedTestsString = suggestedTestsList.join(', ')
+
 
 
   let tempInfoObj = {
@@ -37,6 +66,10 @@ for (let i = 1; i <=100; i++) {
       availableForAdoption: randomInt(1, 500),
       imageUrl: `http://breedphotos.s3.us-east-2.amazonaws.com/photos/image${i}.jpg`,
       summary: lorem.loremIpsum(options.summary),
+      otherNames: otherNameString
+    },
+
+    stats: {
       energyLevel: randomInt(1, 5),
       exerciseRequirements: randomInt(1, 5),
       playfullness: randomInt(1, 5),
@@ -60,7 +93,7 @@ for (let i = 1; i <=100; i++) {
       family: lorem.loremIpsum(options.familyAndArea),
       areaOfOrigin: lorem.loremIpsum(options.familyAndArea),
       dateOfOrigin: `${randomInt(5, 19)}00s`,
-      otherNames: otherNameList
+      otherNames: otherNameString
     },
 
     //detailed info
@@ -69,10 +102,10 @@ for (let i = 1; i <=100; i++) {
     upkeep: lorem.loremIpsum(options.tempramentAndUpkeep),
 
     health : {
-      majorConcerns: lorem.loremIpsum(options.concerns),
-      minorConcerns: lorem.loremIpsum(options.concerns),
-      occaisonallySeen: lorem.loremIpsum(options.concerns),
-      suggestedTests: lorem.loremIpsum(options.concerns),
+      majorConcerns: majorConcernsString,
+      minorConcerns: minorConcernsString,
+      occaisonallySeen: occasionallySeenString,
+      suggestedTests: suggestedTestsString,
       lifeSpan: `${randomInt(8, 20)} years`,
       note: lorem.loremIpsum({count: 2, units: 'sentences'})
     },

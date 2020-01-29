@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const IP = '172.31.34.129';
 const PORT = '27017'
-const seedData = require('./seed_data.js');
+const seedData = require('./data/seed_data.js');
 
 mongoose.connect(`mongodb://localhost/breed`, {
   useNewUrlParser: true,
@@ -16,7 +16,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 db.once('open', ()=> {
   console.log(`mongoose connected`)
-  seed(seedData.breedInfoArray)
+  //seed(seedData.breedInfoArray)
 })
 
 let breedSchema = mongoose.Schema({
@@ -26,7 +26,8 @@ let breedSchema = mongoose.Schema({
     breedName: String,
     availableForAdoption: Number,
     imageUrl: String,
-    summary: String
+    summary: String,
+    otherNames: String
   }),
 
   stats: mongoose.Schema({
@@ -53,7 +54,7 @@ let breedSchema = mongoose.Schema({
     family: String,
     areaOfOrigin: String,
     dateOfOrigin: String,
-    otherNames: []
+    otherNames: String
   }),
 
   history: String,
@@ -79,13 +80,12 @@ let dbCheck = () => {
   return findPromise;
 }
 
+
 let seed = (breedInfoArray) => {
-  //check if there is an existing breedInfo DB
-  console.log('seed gets called')
+  //check if there is an existing breed DB
   dbCheck()
     .then((documents) => {
       if (documents.length === 0) {
-        //console.log('doc ', doc)
         Breed.insertMany(breedInfoArray, function(error, docs) {
           if (error) {
             console.log('error: ', error)
@@ -115,3 +115,4 @@ let retreiveOne = (id) => {
 module.exports.retreiveOne = retreiveOne;
 module.exports.retreiveSimilar = retreiveSimilar;
 module.exports.Breed = Breed;
+module.exports.seed = seed;

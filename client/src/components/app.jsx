@@ -3,60 +3,9 @@ import $ from 'jquery';
 import { connect } from 'react-redux'
 import About from './About.jsx';
 
+
 const IP = 'localhost';
 const PORT = 3000;
-
-const blankState = {
-  about : {
-    id: '',
-    breedName: '',
-    availableForAdoption: '',
-    imageUrl: '',
-    summary: ''
-  },
-
-  stats : {
-    energyLevel: '',
-    exerciseRequirements: '',
-    playfullness: '',
-    affectionLevel: '',
-    friendlinessToDogs: '',
-    friendlinessToOtherPets: '',
-    friendlinessToStrangers: '',
-    watchfullness: '',
-    easeOfTraining: '',
-    groomingRequirements: '',
-    heatSensitivity: '',
-    vocality: ''
-  },
-
-  specs : {
-    type: '',
-    weightMin: '',
-    weightMax: '',
-    heightMin: '',
-    heightMax: '',
-    family: '',
-    areaOfOrigin: '',
-    dateOfOrigin: '',
-    otherNames: []
-  },
-
-  history: '',
-  temprament: '',
-  upkeep: '',
-
-  health : {
-    majorConcerns: '',
-    minorConcerns: '',
-    occaisonallySeen: '',
-    suggestedTests: '',
-    lifeSpan: '',
-    note: ''
-  },
-
-  disclaimer: '',
-}
 
 class App extends React.Component {
   constructor(props) {
@@ -90,11 +39,9 @@ class App extends React.Component {
     $.ajax({
       method: 'GET',
       url: `http://${IP}:${PORT}/api/oneBreed/${queryString}`
-      // success: (data) => {
-      //   console.log('data in ajax success: ', data)
-      //   // this.setState(data);
-      // }
+
     })
+      // updateBreed action dispatched via Redux
       .then((data)=>{
         this.props.updateBreed(data)
       })
