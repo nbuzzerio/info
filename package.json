@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "description": "covers the Specs, History, Temprament/Upkeep, Health, and Disclaimer sections",
   "main": "index.js",
-  "jest": {
-    "setupFilesAfterEnv": [
-      "jest-enzyme"
-    ],
-    "testEnvironment": "enzyme"
-  },
   "scripts": {
     "test": "jest",
     "build": "webpack",
@@ -27,6 +21,7 @@
   },
   "homepage": "https://github.com/Sagittarius-HR/info#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "graphql": "^14.5.8",
@@ -35,8 +30,6 @@
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "lorem-ipsum": "^2.0.3",
-    "mongo-seeding": "^3.4.0-alpha.1",
-    "mongo-seeding-cli": "^3.4.0-alpha.1",
     "mongoose": "^5.8.9",
     "nodemon": "^2.0.2",
     "react": "^16.12.0",
@@ -57,6 +50,7 @@
     "enzyme-to-json": "^3.4.3",
     "jest": "^24.9.0",
     "jest-cli": "^25.1.0",
+    "jest-styled-components": "^7.0.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   }

@@ -22,6 +22,9 @@ class About extends React.Component {
         <div>
           <Heading name={info.breedName} otherNames ={info.otherNames}/>
         </div>
+        <div>
+          <Available name={info.breedName}/>
+        </div>
         <img src= {info.imageUrl} height="200" width="200"></img>
 
       </div>

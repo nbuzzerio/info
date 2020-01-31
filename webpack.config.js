@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: './client/src/index.jsx',
+
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'client/dist'),
@@ -16,7 +17,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -25,5 +26,10 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  resolve: {
+    alias: {
+      config$: './configs/app-config.js',
+      react: './vendor/react-master',
+    }
 };
