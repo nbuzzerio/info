@@ -5,7 +5,7 @@ import About from './About.jsx';
 
 
 const IP = 'localhost';
-const PORT = 3000;
+const PORT = 3002;
 
 class App extends React.Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class App extends React.Component {
     //send get request to server with query string reflecting random breedId, will return that breeds info.
     $.ajax({
       method: 'GET',
-      url: `http://${IP}:${PORT}/api/oneBreed/${queryString}`
+      url: `/api/oneBreed/${queryString}`
 
     })
       // updateBreed action dispatched via Redux
