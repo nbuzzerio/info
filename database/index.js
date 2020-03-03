@@ -3,7 +3,7 @@ const IP = '172.31.34.129';
 const PORT = '27017'
 const seedData = require('./data/seed_data.js');
 
-mongoose.connect(`mongodb://localhost/breed`, {
+mongoose.connect(`mongodb+srv://nbuzzer:77mongoDB77@fec-availability-mdczx.mongodb.net/breed`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true
