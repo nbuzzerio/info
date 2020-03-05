@@ -1,8 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const PORT = 3002;
 
 let app = express();
 const db = require('../database/index.js');
+
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true}))
 app.use(express.static(__dirname + '/../client/dist'));
