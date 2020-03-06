@@ -29,16 +29,11 @@ class App extends React.Component {
 
   loadInfo () {
     //get random # betw. 1-100
-    if (document.getElementById("breedId")) {
-      console.log('Checking for element: ', document.getElementById("breedId").value)
-      let breedId = document.getElementById("breedId").value;
-      var queryString = `?id=${breedId}`;
-    } else {
-      //if this is running on its own and ID is not available from proxy
-      console.log("breedId is not a valid element")
-      let breedId = Math.ceil(Math.random() * 100);
-      var queryString = `?id=${breedId}`;
+    var breedId = Number.parseFloat(window.location.pathname.replace(/^\/+|\/+$/g, ''));
+    if (Number.isNaN(breedId)) {
+      breedId = 1;
     }
+    var queryString = `?id=${breedId}`;
     // this.setState = this.setState.bind(this);
 
 
